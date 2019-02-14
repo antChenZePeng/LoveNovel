@@ -1,8 +1,8 @@
 server:
-  port: 8084
+  port: 8080
 
 management:
-  port: 8094
+  port: 8090
 
 spring:
   http:
@@ -15,23 +15,17 @@ spring:
       suffix: .jsp
   druid:
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://192.168.0.9:3307/shenqics_rel20180608?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&autoReconnect=true
-    username: app_root
-    password: admin
-    maxActive: 2
-    minIdle: 1
+    url: jdbc:mysql://139.199.5.223:3306/lovenovel?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&autoReconnect=true
+    username: root
+    password: 'CHEN#mysql&369'
+    maxActive: 10
+    minIdle: 5
     maxWait: 10000
     validationQuery: SELECT '1'
   redis:
     cache:
-      clusterNodes: 192.168.0.9:7000;192.168.0.9:7001;192.168.0.9:7002;192.168.0.9:7003;192.168.0.9:7004;192.168.0.9:7005
+      clusterNodes: 139.199.5.223:6379
       commandTimeout: 5000
-
-rocketmq:
-  # 生产者配置
-  producer:
-    groupName: gameMessageGroup
-    namesrvAddr: 192.168.0.20:9876
 
 mybatis:
   mapper-locations: classpath:mapping/*.xml  #注意：一定要对应mapper映射xml文件的所在路径
