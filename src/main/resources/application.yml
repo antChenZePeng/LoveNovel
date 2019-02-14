@@ -1,0 +1,40 @@
+server:
+  port: 8084
+
+management:
+  port: 8094
+
+spring:
+  http:
+    multipart:
+      maxFileSize: 100Mb
+      maxRequestSize: 100Mb
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+  druid:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.0.9:3307/shenqics_rel20180608?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&autoReconnect=true
+    username: app_root
+    password: admin
+    maxActive: 2
+    minIdle: 1
+    maxWait: 10000
+    validationQuery: SELECT '1'
+  redis:
+    cache:
+      clusterNodes: 192.168.0.9:7000;192.168.0.9:7001;192.168.0.9:7002;192.168.0.9:7003;192.168.0.9:7004;192.168.0.9:7005
+      commandTimeout: 5000
+
+rocketmq:
+  # 生产者配置
+  producer:
+    groupName: gameMessageGroup
+    namesrvAddr: 192.168.0.20:9876
+
+mybatis:
+  mapper-locations: classpath:mapping/*.xml  #注意：一定要对应mapper映射xml文件的所在路径
+  type-aliases-package: com.shenqi.chatcs.model  # 注意：对应实体类的路径
+  configuration:
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

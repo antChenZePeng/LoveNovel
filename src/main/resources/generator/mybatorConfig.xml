@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD 
+
+ MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd 
+
+">
+<generatorConfiguration>
+	<!-- 数据库驱动包位置 -->
+	<classPathEntry location="./src/main/resources/lib/mysql-connector-java-5.1.39-bin.jar" />
+	<context id="DB2Tables" targetRuntime="MyBatis3">
+		<commentGenerator>
+			<property name="suppressDate" value="true"/>
+		</commentGenerator>
+		<!-- 数据库链接URL、用户名、密码 -->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://192.168.0.9:3307/shenqics_rel20180608" userId="app_root" password="admin">
+		</jdbcConnection>
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<!-- 生成模型的包名和位置 -->
+		<javaModelGenerator targetPackage="com.shenqi.chatcs.mysql.model" targetProject="src/main/java/">
+			<property name="enableSubPackages" value="false"/>
+			<property name="trimStrings" value="true"/>
+		</javaModelGenerator>
+		<!-- 生成的映射文件包名和位置 -->
+		<sqlMapGenerator targetPackage="mapping" targetProject="src/main/resources">
+			<property name="enableSubPackages" value="false"/>
+		</sqlMapGenerator>
+		<!-- 生成DAO的包名和位置 -->
+		<javaClientGenerator type="XMLMAPPER" targetPackage="com.shenqi.chatcs.mysql.dao"  targetProject="src/main/java/">
+			<property name="enableSubPackages" value="false" />
+		</javaClientGenerator>
+
+
+		<table tableName="CS_GameSerieList" domainObjectName="CS_GameSerieList">
+			<generatedKey column="ID" sqlStatement="MySql" identity="true" />
+		</table>
+		<table tableName="CS_GameSeries" domainObjectName="CS_GameSeries">
+			<generatedKey column="ID" sqlStatement="MySql" identity="true" />
+		</table>
+
+		<!-- 要生成那些表(更改tableName和domainObjectName就可以) -->
+		<!--<table tableName="CH_GameScIdList" domainObjectName="CH_GameScIdList">
+			<generatedKey column="id" sqlStatement="MySql" identity="true" />
+		</table>
+        <table tableName="MS_Menu" domainObjectName="MS_Menu">
+            <generatedKey column="MenuId" sqlStatement="MySql" identity="true" />
+        </table>
+        <table tableName="MS_RoleGroup" domainObjectName="MS_RoleGroup">
+            <generatedKey column="GroupId" sqlStatement="MySql" identity="true" />
+        </table>-->
+		<!--<table tableName="MS_UserInfo" domainObjectName="MS_UserInfo">
+            <generatedKey column="UserId" sqlStatement="MySql" identity="true" />
+        </table>-->
+		<!--<table tableName="CH_ChannelInfo" domainObjectName="CH_ChannelInfo">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true" />
+        </table>-->
+		<!--<table tableName="SU_Support" domainObjectName="SU_Support">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true" />
+        </table>
+        <table tableName="SU_SupportApply" domainObjectName="SU_SupportApply">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true" />
+        </table>
+        <table tableName="SU_SupportRecord" domainObjectName="SU_SupportRecord">
+            <generatedKey column="UserId,ZoneId,GameId" sqlStatement="MySql" identity="true" />
+        </table>-->
+		<!--<table tableName="SU_GameSupportSetting" domainObjectName="SU_GameSupportSetting">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true" />
+        </table>-->
+		<!--<table tableName="SU_VvAndUser" domainObjectName="SU_VvAndUser">
+            <generatedKey column="UserId,GameId,ZoneId,VVID" sqlStatement="MySql" identity="true" />
+        </table>-->
+		<!--<table tableName="CH_GuildInfo" domainObjectName="CH_GuildInfo">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true" />
+        </table>-->
+		<!--<table tableName="SU_RoleRemark" domainObjectName="SU_RoleRemark" modelType="flat">
+		</table>-->
+		<!--<table tableName="SU_SupportApply" domainObjectName="SU_SupportApply">-->
+		<!--<generatedKey column="ID" sqlStatement="MySql" identity="true" />-->
+		<!--<columnOverride column="roleName" javaType="java.lang.String" jdbcType="TinyBlob" typeHandler="com.shenqi.util.MyBlobTypeHandler"/>-->
+		<!--</table>-->
+		<!--<table tableName="ST_SparkHourTotal" domainObjectName="ST_SparkHourTotal" modelType="flat">-->
+		<!--</table>-->
+		<!--<table tableName="CS_GameGiftList" domainObjectName="CS_GameGiftList">-->
+		<!--<generatedKey column="ID" sqlStatement="MySql" identity="true" />-->
+		<!--<columnOverride column="UsageMethod" javaType="java.lang.String" jdbcType="varchar"/>-->
+		<!--<columnOverride column="GuildIds" javaType="java.lang.String" jdbcType="varchar"/>-->
+		<!--</table>-->
+		<!--<table tableName="CS_GameGiftType" domainObjectName="CS_GameGiftType">-->
+			<!--<generatedKey column="ID" sqlStatement="MySql" identity="true" />-->
+		<!--</table>-->
+
+		<!--<table tableName="CS_GameList" domainObjectName="CS_GameList">-->
+			<!--<generatedKey column="ID" sqlStatement="MySql" identity="true" />-->
+			<!--<columnOverride column="Descs" javaType="java.lang.String" jdbcType="VARCHAR"/>-->
+			<!--<columnOverride column="ShieldMcId" javaType="java.lang.String" jdbcType="VARCHAR"/>-->
+			<!--<columnOverride column="McId" javaType="java.lang.String" jdbcType="VARCHAR"/>-->
+		<!--</table>-->
+
+		<!--<table tableName="LG_Cdkey" domainObjectName="LG_Cdkey">-->
+			<!--<generatedKey column="ID" sqlStatement="MySql" identity="true" />-->
+			<!--<columnOverride column="Descs" javaType="java.lang.String" jdbcType="VARCHAR"/>-->
+		<!--</table>-->
+
+		<!--<table tableName="CS_MailInfo" domainObjectName="CS_MailInfo">-->
+			<!--<generatedKey column="ID" sqlStatement="MySql" identity="true"/>-->
+			<!--<columnOverride column="UserIds" javaType="java.lang.String" jdbcType="VARCHAR"/>-->
+			<!--<columnOverride column="MailBody" javaType="java.lang.String" jdbcType="VARCHAR"/>-->
+		<!--</table>-->
+		<!--<table tableName="CS_MailToolInfo" domainObjectName="CS_MailToolInfo">-->
+			<!--<generatedKey column="ID" sqlStatement="MySql" identity="true"/>-->
+		<!--</table>-->
+		<!--<table tableName="CS_TieUpUserLog" domainObjectName="CS_TieUpUserLog">-->
+			<!--<generatedKey column="ID" sqlStatement="MySql" identity="true"/>-->
+		<!--</table>-->
+		<!--<table tableName="CS_TieUpRecord" domainObjectName="CS_TieUpRecord">-->
+			<!--<generatedKey column="ID" sqlStatement="MySql" identity="true"/>-->
+		<!--</table>-->
+
+		<!--<table tableName="SU_McVcoinPool" domainObjectName="SU_McVcoinPool" modelType="flat">-->
+		<!--</table>-->
+		<!--<table tableName="Su_CrossGroupRecord" domainObjectName="Su_CrossGroupRecord">-->
+			<!--<generatedKey column="ID" sqlStatement="MySql" identity="true"/>-->
+		<!--</table>-->
+
+		<!--<table tableName="VVCS_Menu" domainObjectName="VVCS_Menu">-->
+			<!--<generatedKey column="ID" sqlStatement="MySql" identity="true"/>-->
+		<!--</table>-->
+		<!--<table tableName="VVCS_Role" domainObjectName="VVCS_Role">-->
+			<!--<generatedKey column="ID" sqlStatement="MySql" identity="true"/>-->
+		<!--</table>-->
+		<!--<table tableName="VVCS_RoleMenuRelation" domainObjectName="VVCS_RoleMenuRelation">-->
+			<!--<generatedKey column="ID" sqlStatement="MySql" identity="true"/>-->
+		<!--</table>-->
+		<!--<table tableName="VVCS_AccountRoleRelation" domainObjectName="VVCS_AccountRoleRelation">-->
+			<!--<generatedKey column="ID" sqlStatement="MySql" identity="true"/>-->
+		<!--</table>-->
+		<!--<table tableName="VVWEB_Menu" domainObjectName="VVWEB_Menu">-->
+			<!--<generatedKey column="ID" sqlStatement="MySql" identity="true"/>-->
+		<!--</table>-->
+		<!--<table tableName="CS_MusicList" domainObjectName="CS_MusicList">
+			<generatedKey column="ID" sqlStatement="MySql" identity="true"/>
+		</table>-->
+	</context>
+</generatorConfiguration>
