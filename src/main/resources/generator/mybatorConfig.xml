@@ -6,20 +6,20 @@
 ">
 <generatorConfiguration>
 	<!-- 数据库驱动包位置 -->
-	<classPathEntry location="./src/main/resources/lib/mysql-connector-java-5.1.39-bin.jar" />
+	<classPathEntry location="./src/main/resources/lib/mysql-connector-java-8.0.15.jar" />
 	<context id="DB2Tables" targetRuntime="MyBatis3">
 		<commentGenerator>
 			<property name="suppressDate" value="true"/>
 		</commentGenerator>
 		<!-- 数据库链接URL、用户名、密码 -->
-		<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://192.168.0.9:3307/shenqics_rel20180608" userId="app_root" password="admin">
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://139.199.5.223:3306/lovenovel" userId="root" password="CHEN#mysql&amp;369">
 		</jdbcConnection>
 		<javaTypeResolver>
 			<property name="forceBigDecimals" value="false" />
 		</javaTypeResolver>
 
 		<!-- 生成模型的包名和位置 -->
-		<javaModelGenerator targetPackage="com.shenqi.chatcs.mysql.model" targetProject="src/main/java/">
+		<javaModelGenerator targetPackage="com.wenzhi.novel.mysql.model" targetProject="src/main/java/">
 			<property name="enableSubPackages" value="false"/>
 			<property name="trimStrings" value="true"/>
 		</javaModelGenerator>
@@ -28,16 +28,13 @@
 			<property name="enableSubPackages" value="false"/>
 		</sqlMapGenerator>
 		<!-- 生成DAO的包名和位置 -->
-		<javaClientGenerator type="XMLMAPPER" targetPackage="com.shenqi.chatcs.mysql.dao"  targetProject="src/main/java/">
+		<javaClientGenerator type="XMLMAPPER" targetPackage="com.wenzhi.novel.mysql.dao"  targetProject="src/main/java/">
 			<property name="enableSubPackages" value="false" />
 		</javaClientGenerator>
 
 
-		<table tableName="CS_GameSerieList" domainObjectName="CS_GameSerieList">
-			<generatedKey column="ID" sqlStatement="MySql" identity="true" />
-		</table>
-		<table tableName="CS_GameSeries" domainObjectName="CS_GameSeries">
-			<generatedKey column="ID" sqlStatement="MySql" identity="true" />
+		<table tableName="PG_NovelList" domainObjectName="PG_NovelList">
+			<generatedKey column="Id" sqlStatement="MySql" identity="true" />
 		</table>
 
 		<!-- 要生成那些表(更改tableName和domainObjectName就可以) -->
