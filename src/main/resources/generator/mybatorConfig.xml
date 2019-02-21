@@ -33,9 +33,13 @@
 		</javaClientGenerator>
 
 
-		<table tableName="PG_NovelList" domainObjectName="PG_NovelList">
+		<table tableName="PG_MediaStorage" domainObjectName="PG_MediaStorage">
 			<generatedKey column="Id" sqlStatement="MySql" identity="true" />
 		</table>
+
+		<!--<table tableName="PG_NovelList" domainObjectName="PG_NovelList">
+			<generatedKey column="Id" sqlStatement="MySql" identity="true" />
+		</table>-->
 
 		<!-- 要生成那些表(更改tableName和domainObjectName就可以) -->
 		<!--<table tableName="CH_GameScIdList" domainObjectName="CH_GameScIdList">

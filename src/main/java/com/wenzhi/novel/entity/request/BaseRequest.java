@@ -1,4 +1,4 @@
-package com.wenzhi.novel.controller.RequestBody;
+package com.wenzhi.novel.entity.request;
 
 import lombok.Data;
 

@@ -22,6 +22,9 @@ spring:
     minIdle: 5
     maxWait: 10000
     validationQuery: SELECT '1'
+  data:
+      mongodb:
+        uri: mongodb://alladmin:Pxk5hK36jx@139.199.5.223:30001/novel?authSource=admin
   redis:
     cache:
       clusterNodes: 139.199.5.223:6379

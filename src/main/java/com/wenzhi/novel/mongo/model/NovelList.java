@@ -1,0 +1,38 @@
+package com.wenzhi.novel.mongo.model;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.util.Date;
+
+@ApiModel(value = "NovelList")
+@Document(collection = "NovelList")
+@Data
+public class NovelList {
+    @Id
+    @ApiModelProperty("id-更新需传值")
+    private String id;
+    @ApiModelProperty("小说名字")
+    private String novelName;
+    @ApiModelProperty("小说描述")
+    private String novelDesc;
+    @ApiModelProperty("小说作者")
+    private String novelAuthor;
+    @ApiModelProperty("小说封面图片url")
+    private String novelImage;
+    @ApiModelProperty("小说状态(0 敬请期待  1 连载中  2 完本)")
+    private Byte novelStatus;
+    @ApiModelProperty("小说分类数组")
+    private int[] type;
+    @ApiModelProperty("是否展示(1 是  0 否)")
+    private Byte isShow;
+    @ApiModelProperty("创建时间")
+    private Date createTime;
+    @ApiModelProperty("更新时间")
+    private Date updateTime;
+    @ApiModelProperty("是否删除(1 是  0 否)")
+    private Byte isDeleted;
+}

@@ -1,7 +1,7 @@
 package com.wenzhi.novel.aspect;
 
 import com.alibaba.fastjson.JSONObject;
-import com.wenzhi.novel.controller.RequestBody.BaseRequest;
+import com.wenzhi.novel.entity.request.BaseRequest;
 import com.wenzhi.novel.util.ObtainIpAddressUtil;
 import com.wenzhi.novel.util.ResponseTool;
 import com.wenzhi.novel.hardcode.Symbol;

@@ -1,5 +1,7 @@
 package com.wenzhi.novel.controller;
 
+import com.wenzhi.novel.mongo.dao.NovelListDAO;
+import com.wenzhi.novel.mongo.model.NovelList;
 import com.wenzhi.novel.mysql.model.PG_NovelList;
 import com.wenzhi.novel.service.basisservice.PG_NovelListService;
 import com.wenzhi.novel.util.ResponseTool;
@@ -21,6 +23,9 @@ public class TestController {
     @Autowired
     private PG_NovelListService novelListService;
 
+    @Autowired
+    private NovelListDAO novelListDao;
+
     @RequestMapping(value = "/test.do", method = RequestMethod.GET)
     @ApiOperation(value = "普通测试接口", notes = "普通测试接口", httpMethod = "GET")
     public ResponseTool test(){
@@ -28,4 +33,10 @@ public class TestController {
         return ResponseTool.success(dataList);
     }
 
+    @RequestMapping(value = "/testMongo.do", method = RequestMethod.GET)
+    @ApiOperation(value = "mongo测试接口", notes = "mongo测试接口", httpMethod = "GET")
+    public ResponseTool testMongo(){
+        List<NovelList> dataList = novelListDao.getAllNovelList();
+        return ResponseTool.success(dataList);
+    }
 }
