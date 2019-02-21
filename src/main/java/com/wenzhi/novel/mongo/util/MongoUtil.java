@@ -1,8 +1,14 @@
 package com.wenzhi.novel.mongo.util;
 
+import com.mongodb.client.result.UpdateResult;
+import com.wenzhi.novel.mongo.model.BaseMongoModel;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
+
+import java.lang.reflect.Field;
 
 import static org.springframework.data.mongodb.core.FindAndModifyOptions.options;
 import static org.springframework.data.mongodb.core.query.Criteria.where;

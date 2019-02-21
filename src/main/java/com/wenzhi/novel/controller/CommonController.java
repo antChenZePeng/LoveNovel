@@ -50,8 +50,7 @@ public class CommonController {
             mediaPojo.setMediaType(1);
             mediaPojo.setPictureFile(pictureFile);
             PG_MediaStorage mediaStorage = mediaUtil.uploadFile(mediaPojo);
-            //MediaUploadResponse response = new MediaUploadResponse();
-            return ResponseTool.success(1);
+            return ResponseTool.success(MediaUploadResponse.getBasieResponse(mediaStorage));
         }catch (Exception e){
             logger.error("图片上传接口异常",e);
             return ResponseTool.fail("图片上传异常，请联系系统管理员");

@@ -1,7 +1,11 @@
 package com.wenzhi.novel.controller;
 
+import com.wenzhi.novel.entity.request.NovelRequest;
+import com.wenzhi.novel.mongo.dao.NovelListDAO;
+import com.wenzhi.novel.mongo.model.NovelList;
 import com.wenzhi.novel.mysql.model.PG_NovelList;
 import com.wenzhi.novel.service.basisservice.PG_NovelListService;
+import com.wenzhi.novel.service.bussiness.NovelService;
 import com.wenzhi.novel.util.ResponseTool;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -18,12 +22,24 @@ import java.util.List;
 public class NovelController {
 
     @Autowired
-    private PG_NovelListService novelListService;
+    private NovelService novelService;
 
-    @RequestMapping(value = "/addNovel.do", method = RequestMethod.POST)
-    @ApiOperation(value = "添加小说", notes = "添加小说", httpMethod = "POST")
-    public ResponseTool addNovel(){
-        List<PG_NovelList> dataList = novelListService.getList();
-        return ResponseTool.success(dataList);
+    @RequestMapping(value = "/findNovelByType.do", method = RequestMethod.POST)
+    @ApiOperation(value = "通过小说类型查询小说", notes = "通过小说类型查询小说", httpMethod = "POST")
+    public ResponseTool findNovelByType(NovelRequest novelRequest){
+        return novelService.findNovelByType(novelRequest);
     }
+
+    @RequestMapping(value = "/checkNovelName.do", method = RequestMethod.POST)
+    @ApiOperation(value = "检查小说名字是否存在", notes = "检查小说名字是否存在", httpMethod = "POST")
+    public ResponseTool checkNovelName(NovelRequest novelRequest){
+        return novelService.checkNovelName(novelRequest);
+    }
+
+    @RequestMapping(value = "/editNovel.do", method = RequestMethod.POST)
+    @ApiOperation(value = "添加/编辑小说", notes = "添加/编辑小说", httpMethod = "POST")
+    public ResponseTool editNovel(NovelRequest novelRequest) throws Exception{
+        return novelService.editNovel(novelRequest);
+    }
+
 }
