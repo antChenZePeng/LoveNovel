@@ -1,10 +1,6 @@
 package com.wenzhi.novel.controller;
 
 import com.wenzhi.novel.entity.request.NovelRequest;
-import com.wenzhi.novel.mongo.dao.NovelListDAO;
-import com.wenzhi.novel.mongo.model.NovelList;
-import com.wenzhi.novel.mysql.model.PG_NovelList;
-import com.wenzhi.novel.service.basisservice.PG_NovelListService;
 import com.wenzhi.novel.service.bussiness.NovelService;
 import com.wenzhi.novel.util.ResponseTool;
 import io.swagger.annotations.Api;
@@ -13,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @RestController
 @RequestMapping(value = "/novel")

@@ -5,6 +5,7 @@ import lombok.Data;
 
 @Data
 public class NovelRequest extends BaseRequest{
+    @ApiModelProperty("小说id--editNovel.do")
     private String id;
     @ApiModelProperty("小说名字--editNovel.do,checkNovelName.do")
     private String novelName;

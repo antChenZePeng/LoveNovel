@@ -2,9 +2,8 @@ package com.wenzhi.novel.service.bussiness;
 
 import com.wenzhi.novel.entity.request.NovelRequest;
 import com.wenzhi.novel.entity.response.NovelResponse;
-import com.wenzhi.novel.mongo.dao.NovelListDAO;
+import com.wenzhi.novel.mongo.dao.NovelListDao;
 import com.wenzhi.novel.mongo.model.NovelList;
-import com.wenzhi.novel.mongo.util.MongoUtil;
 import com.wenzhi.novel.util.ResponseTool;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +20,7 @@ import static com.wenzhi.novel.hardcode.Symbol.Comma;
 public class NovelService {
 
     @Autowired
-    private NovelListDAO novelListDao;
+    private NovelListDao novelListDao;
 
     public ResponseTool<List<NovelResponse>> findNovelByType(NovelRequest novelRequest){
         List<NovelList> dataList = novelListDao.getNovelByType(novelRequest.getType());

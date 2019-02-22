@@ -1,9 +1,12 @@
 package com.wenzhi.novel.mongo.util;
 
 import com.mongodb.client.result.UpdateResult;
+import com.wenzhi.novel.hardcode.Tables;
 import com.wenzhi.novel.mongo.model.BaseMongoModel;
+import com.wenzhi.novel.mongo.model.NovelList;
 import com.wenzhi.novel.util.BaseException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -11,6 +14,7 @@ import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Field;
+import java.util.List;
 
 import static com.wenzhi.novel.hardcode.EExceptionCode.EErrorCode.MONGO_UPDATE_ERROR;
 import static com.wenzhi.novel.hardcode.EExceptionCode.EErrorCode.MONGO_UPDATE_NOTDATA;
@@ -21,6 +25,15 @@ public class MongoTemplateUtil{
     @Autowired
     private MongoTemplate mongoTemplate;
 
+    /**
+     * 普通通用更新方法
+     * @param baseMongoModel
+     * @param modelClass
+     * @param tableName
+     * @param <T>
+     * @return
+     * @throws Exception
+     */
     public <T> boolean updateCommon(BaseMongoModel baseMongoModel, Class<T> modelClass, String tableName) throws Exception{
         T oldObject = mongoTemplate.findById(baseMongoModel.getId(), modelClass, tableName);
         T newObject = (T)baseMongoModel;

@@ -9,6 +9,7 @@ public class Tables {
     /** mongo数据表 **/
     public enum EMongoTable {
         novelList(1, "novelList"), // 小说列表
+        novelType(2, "novelType"), //小说分类列表
         ;
 
         public final Integer tableId;

@@ -19,7 +19,7 @@ import java.lang.reflect.Field;
 import java.util.List;
 
 @Component
-public class NovelListDAO {
+public class NovelListDao {
 
     @Autowired
     private MongoTemplate mongoTemplate;
@@ -46,6 +46,7 @@ public class NovelListDAO {
         if(type != null){
             query.addCriteria(Criteria.where("type").is(type));
         }
+        query.addCriteria(Criteria.where("isDeleted").is(0));
         List<NovelList> novelList = mongoTemplate.find(query, NovelList.class, Tables.EMongoTable.novelList.tableName);
         return novelList;
     }
@@ -58,6 +59,7 @@ public class NovelListDAO {
     public List<NovelList> getNovelByName(String novelName){
         Query query=new Query();
         query.addCriteria(Criteria.where("novelName").is(novelName));
+        query.addCriteria(Criteria.where("isDeleted").is(0));
         List<NovelList> novelList = mongoTemplate.find(query, NovelList.class, Tables.EMongoTable.novelList.tableName);
         return novelList;
     }
