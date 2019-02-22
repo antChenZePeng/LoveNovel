@@ -2,6 +2,7 @@ package com.wenzhi.novel.aspect;
 
 import com.alibaba.fastjson.JSONObject;
 import com.wenzhi.novel.entity.request.BaseRequest;
+import com.wenzhi.novel.util.BaseException;
 import com.wenzhi.novel.util.ObtainIpAddressUtil;
 import com.wenzhi.novel.util.ResponseTool;
 import com.wenzhi.novel.hardcode.Symbol;
@@ -30,7 +31,7 @@ public class ParamAspect {
     private static final DecimalFormat decimalFormat = new DecimalFormat("000000");
 
 
-    @Around("execution (* com.wenzhi.novel.controller.*.*Controller.*(..)) || execution (* com.wenzhi.chatcs.controller.*Controller.*(..))")
+    @Around("execution (* com.wenzhi.novel.controller.*.*Controller.*(..)) || execution (* com.wenzhi.novel.controller.*Controller.*(..))")
     public Object aroundMethod(ProceedingJoinPoint pjd) throws IOException {
         Object result = null;
         String methodName = pjd.getSignature().getDeclaringTypeName() + "." + pjd.getSignature().getName();
@@ -49,7 +50,10 @@ public class ParamAspect {
             result = pjd.proceed();
             log.info(methodName+ Symbol.Comma + "[costTime]:" + decimalFormat.format(System.currentTimeMillis() - begin));
             return result;
-        } catch(Throwable e) {
+        }catch (BaseException be){
+            result = ResponseTool.fail(be.getErrorCode(), be.getErrorMessage());
+            return result;
+        }catch(Throwable e) {
             log.error("The method " + methodName + " occurs expection  " ,e);
             return ResponseTool.fail(e.getMessage());
         }finally {

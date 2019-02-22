@@ -1,5 +1,6 @@
 package com.wenzhi.novel.entity.request;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 /**
@@ -7,6 +8,8 @@ import lombok.Data;
  */
 @Data
 public class BaseRequest {
+    @ApiModelProperty(hidden = true)
     String reqTime;
+    @ApiModelProperty(hidden = true)
     String ipAddress;
 }

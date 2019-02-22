@@ -56,6 +56,9 @@ public class NovelService {
         if(novelRequest.getSequence()==null){
             novelRequest.setSequence(1000);
         }
+        if(novelRequest.getSequence()<0 || novelRequest.getSequence()>1000){
+            return ResponseTool.fail("小说全局序号必须在1~1000之间");
+        }
         if(StringUtils.isEmpty(novelRequest.getNovelAuthor())){
             novelRequest.setNovelAuthor("");
         }
@@ -91,6 +94,7 @@ public class NovelService {
             novelList.setUpdateTime(now);
             novelListDao.insertNovel(novelList);
         }else {
+            novelList.setId(novelRequest.getId());
             novelList.setUpdateTime(now);
             novelListDao.updateNovel(novelList);
         }

@@ -1,11 +1,12 @@
 package com.wenzhi.novel.hardcode;
 
-public class EReturnCode {
+public class EExceptionCode {
 
     public enum EErrorCode {
 
-        OK(1,"ok"),
-        FAIL(0,"fail"),
+        FAIL(0,"exception"),
+        MONGO_UPDATE_NOTDATA(10001, "更新的数据不存在"),
+        MONGO_UPDATE_ERROR(10002, "数据库数据更新异常"),
         ;
 
         public final int status;
@@ -24,5 +25,4 @@ public class EReturnCode {
             return this.desc;
         }
     }
-
 }
