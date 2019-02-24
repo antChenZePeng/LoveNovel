@@ -29,7 +29,7 @@ public class NovelTypeDao {
      * 插入小说类型
      * @param novelTpye
      */
-    public void insertNovel(NovelType novelTpye) throws Exception{
+    public void insertNovelType(NovelType novelTpye) throws Exception{
         if(!CollectionUtils.isEmpty(this.getTypeByName(novelTpye.getTypeName()))){
             throw new BaseException(MONGO_NOVELTYPE_DUPLICATE.getCodeStr(), MONGO_NOVELTYPE_DUPLICATE.getDesc());
         }
@@ -42,7 +42,7 @@ public class NovelTypeDao {
      * @return
      * @throws Exception
      */
-    public boolean updateNovel(NovelType novelTpye) throws Exception{
+    public boolean updateNovelType(NovelType novelTpye) throws Exception{
         List<NovelType> dataList = this.getTypeByName(novelTpye.getTypeName());
         if(!CollectionUtils.isEmpty(dataList) && !dataList.get(0).getId().equals(novelTpye.getId())){
             throw new BaseException(MONGO_NOVELTYPE_DUPLICATE.getCodeStr(), MONGO_NOVELTYPE_DUPLICATE.getDesc());

@@ -10,6 +10,7 @@ public class Tables {
     public enum EMongoTable {
         novelList(1, "novelList"), // 小说列表
         novelType(2, "novelType"), //小说分类列表
+        novelContent(3, "novelContent"), //小说内容
         ;
 
         public final Integer tableId;

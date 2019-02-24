@@ -50,11 +50,11 @@ public class NovelTypeService {
         if(StringUtils.isEmpty(novelTypeRequest.getId())){
             novelType.setCreateTime(now);
             novelType.setUpdateTime(now);
-            novelTypeDao.insertNovel(novelType);
+            novelTypeDao.insertNovelType(novelType);
         }else{
             novelType.setId(novelTypeRequest.getId());
             novelType.setUpdateTime(now);
-            novelTypeDao.updateNovel(novelType);
+            novelTypeDao.updateNovelType(novelType);
         }
         return ResponseTool.success(1);
     }
