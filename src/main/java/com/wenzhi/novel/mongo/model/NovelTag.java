@@ -7,22 +7,18 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 
-@ApiModel(value = "NovelType")
-@Document(collection = "NovelType")
+@ApiModel(value = "NovelTag")
+@Document(collection = "NovelTag")
 @Data
-public class NovelType extends BaseMongoModel{
-    @ApiModelProperty("分类id")
-    private Integer typeId;
-    @ApiModelProperty("分类名称")
-    private String typeName;
-    @ApiModelProperty("分类描述")
-    private String typeDesc;
-    @ApiModelProperty("分类logo图")
-    private String typeImage;
+public class NovelTag extends BaseMongoModel{
+    @ApiModelProperty("标签id")
+    private Integer tagId;
+    @ApiModelProperty("标签名称")
+    private String tagName;
+    @ApiModelProperty("标签描述")
+    private String tagDesc;
     @ApiModelProperty("权重号(越小越前)")
     private Integer sequence;
-    @ApiModelProperty("分类状态(1 显示  2 不显示)")
-    private Integer typeStatus;
     @ApiModelProperty("创建时间")
     private Date createTime;
     @ApiModelProperty("更新时间")

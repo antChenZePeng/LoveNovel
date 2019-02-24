@@ -11,6 +11,7 @@ public class Tables {
         novelList(1, "novelList"), // 小说列表
         novelType(2, "novelType"), //小说分类列表
         novelContent(3, "novelContent"), //小说内容
+        novelTag(4, "novelTag"),//小说标签列表
         ;
 
         public final Integer tableId;

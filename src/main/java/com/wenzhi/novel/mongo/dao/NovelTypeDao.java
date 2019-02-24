@@ -4,6 +4,7 @@ import com.wenzhi.novel.hardcode.Tables;
 import com.wenzhi.novel.mongo.model.NovelList;
 import com.wenzhi.novel.mongo.model.NovelType;
 import com.wenzhi.novel.mongo.util.MongoTemplateUtil;
+import com.wenzhi.novel.mongo.util.MongoUtil;
 import com.wenzhi.novel.util.BaseException;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,7 @@ public class NovelTypeDao {
         if(!CollectionUtils.isEmpty(this.getTypeByName(novelTpye.getTypeName()))){
             throw new BaseException(MONGO_NOVELTYPE_DUPLICATE.getCodeStr(), MONGO_NOVELTYPE_DUPLICATE.getDesc());
         }
+        novelTpye.setTypeId(MongoUtil.getNextSequence(mongoTemplate, Tables.EMongoTable.novelType.tableName));
         mongoTemplate.insert(novelTpye, Tables.EMongoTable.novelType.tableName);
     }
 
